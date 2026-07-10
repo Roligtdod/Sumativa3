@@ -26,7 +26,7 @@ public class Vehiculo extends Recurso implements Registrable{
 
     @Override
     public String MostrarResumen(){
-       return(super.MostrarResumen() + "Tipo: " + tipo + " Marca: " + marca + " Patente: " + patente + "\n");
+       return(super.MostrarResumen() + "Tipo: " + tipo + " Marca: " + marca + " Patente: " + patente +" ~~~~~~~"+ "\n");
     }
 
 

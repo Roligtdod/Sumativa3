@@ -10,7 +10,7 @@ public class Recurso implements Registrable{
     }
 
     public String MostrarResumen(){
-        return ("Nombre: " + nombre + " ID: " + id + " ");
+        return ("~~~~~~~ "+"Nombre: " + nombre + " ID: " + id + " ");
     }
 
     public void setNombre(String nombre) {

@@ -18,7 +18,7 @@ public class ColaboradorExterno extends Recurso implements Registrable{
     @Override
     public String MostrarResumen(){
 
-        return  (super.MostrarResumen() + "Area: " + areasTrabajo + " Departamento: " + departamento + " Meses de Contrato: " + mesesContrato + " Sueldo: " + sueldo + "\n");
+        return  (super.MostrarResumen() + "Area: " + areasTrabajo + " Departamento: " + departamento + " Meses de Contrato: " + mesesContrato + " Sueldo: " + sueldo +" ~~~~~~~"+ "\n");
     }
 
 }

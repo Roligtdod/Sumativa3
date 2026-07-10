@@ -33,7 +33,7 @@ public class Persona extends Recurso implements Registrable{
 
     @Override
     public String MostrarResumen() {
-        return(super.MostrarResumen() + "Fecha de Nacimiento: " + fechaNacimiento + " Fecha de Ingreso: " + fechaIngreso + " Cargo: " + cargo + " Sueldo: " + sueldo+"\n");
+        return(super.MostrarResumen() + "Fecha de Nacimiento: " + fechaNacimiento + " Fecha de Ingreso: " + fechaIngreso + " Cargo: " + cargo + " Sueldo: " + sueldo+" ~~~~~~~"+"\n");
     }
 
 }

@@ -58,7 +58,9 @@ public class Main extends JFrame {
         boton.addActionListener(e -> {
             Persona a = new Persona(nombre.getText(),id.getText(),FechaNacimiento.getText(),FechaIngreso.getText(),Cargo.getText(),Integer.parseInt(Sueldo.getText()));
             gestor.RegistrarPersona(a);
-            areaT.setText(gestor.LeerRecursoPersona());
+            areaT.setText("                                                                                          " +
+                    ".......:::::::Trabajadores:::::::.......\n\n");
+            areaT.append(gestor.LeerRecursoPersona());
         });
 
         return cuadroTxt;
