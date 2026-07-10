@@ -9,8 +9,8 @@ public class Recurso implements Registrable{
         this.id = id;
     }
 
-    public void MostrarResumen(){
-        System.out.println("Nombre: " + nombre + " ID: " + id);
+    public String MostrarResumen(){
+        return ("Nombre: " + nombre + " ID: " + id + " ");
     }
 
     public void setNombre(String nombre) {

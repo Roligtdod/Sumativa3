@@ -32,9 +32,8 @@ public class Persona extends Recurso implements Registrable{
     }
 
     @Override
-    public void MostrarResumen() {
-        super.MostrarResumen();
-        System.out.println("Fecha de Nacimiento: " + fechaNacimiento + " Fecha de Ingreso: " + fechaIngreso + " Cargo: " + cargo + " Sueldo: " + sueldo);
+    public String MostrarResumen() {
+        return(super.MostrarResumen() + "Fecha de Nacimiento: " + fechaNacimiento + " Fecha de Ingreso: " + fechaIngreso + " Cargo: " + cargo + " Sueldo: " + sueldo+"\n");
     }
 
 }

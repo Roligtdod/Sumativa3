@@ -4,5 +4,5 @@ import java.util.ArrayList;
 
 public interface Registrable {
 
-    public void MostrarResumen();
+    public String MostrarResumen();
 }

@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main extends JFrame {
-    private final GestorIdentidades gestor = new GestorIdentidades();
+    private static final GestorIdentidades gestor = new GestorIdentidades();
     private JTextArea areaT = crearTextArea();
     private final JTextArea areaV = crearTextArea();
     private final JTextArea areaEx = crearTextArea();
@@ -31,7 +31,7 @@ public class Main extends JFrame {
         JTextArea area = new JTextArea();
         area.setEditable(false);
         return area;
-    }
+    } //JTextArea para mostrar los datos
     private JPanel crearPanelTrabajadores(){
         JTextField nombre = new JTextField();
         JTextField id = new JTextField();
@@ -48,24 +48,22 @@ public class Main extends JFrame {
         panel.add(new JLabel("Fecha de ingreso:")); panel.add(FechaIngreso);
         panel.add(new JLabel("Cargo:")); panel.add(Cargo);
         panel.add(new JLabel("Sueldo:"));panel.add(Sueldo);
-        add(panel);
+        add(panel);     JButton boton = new JButton("Guardar");
 
-        JButton boton = new JButton("Guardar");
+        JPanel cuadroTxt = new JPanel(new BorderLayout());
+        cuadroTxt.add(panel,BorderLayout.NORTH);
+        cuadroTxt.add(areaT, BorderLayout.CENTER);
+        cuadroTxt.add(boton, BorderLayout.SOUTH);
+
         boton.addActionListener(e -> {
             Persona a = new Persona(nombre.getText(),id.getText(),FechaNacimiento.getText(),FechaIngreso.getText(),Cargo.getText(),Integer.parseInt(Sueldo.getText()));
             gestor.RegistrarPersona(a);
-            gestor.LeerRecursoPersona();
+            areaT.setText(gestor.LeerRecursoPersona());
         });
 
+        return cuadroTxt;
 
-        JPanel panel2 = new JPanel(new BorderLayout());
-        panel2.add(panel,BorderLayout.NORTH);
-        panel2.add(areaT, BorderLayout.CENTER);
-        panel2.add(boton, BorderLayout.SOUTH);
-
-        return panel2;
-
-    }
+    } //Crea panel con los datos del trabajador
     private JPanel crearPanelVehiculos(){
         JTextField nombre = new JTextField();
         JTextField id = new JTextField();
@@ -82,18 +80,19 @@ public class Main extends JFrame {
         panel.add(new JLabel("Patente:")); panel.add(patente);
         add(panel);
 
-        JPanel panel2 = new JPanel(new BorderLayout());
-        panel2.add(panel,BorderLayout.NORTH);
+        JPanel cuadroTxt = new JPanel(new BorderLayout()); //Cuadro donde se mostrara el texto
+        cuadroTxt.add(panel,BorderLayout.NORTH);
 
         JButton boton = new JButton("Guardar");
-        panel.add(boton);
+        cuadroTxt.add(boton, BorderLayout.SOUTH);
+        cuadroTxt.add(areaV, BorderLayout.CENTER);
         boton.addActionListener(e -> {
             Vehiculo a = new Vehiculo(nombre.getText(),id.getText(),tipo.getText(),marca.getText(),patente.getText());
             gestor.RegistrarVehiculo(a);
-            gestor.LeerRecursoVehiculo();
+            areaV.setText(gestor.LeerRecursoVehiculo());
         });
-        return panel2;
-    }
+        return cuadroTxt;
+    } //Crea panel con los datos del vehiculo
     private JPanel crearPanelExternos(){
         JTextField nombre = new JTextField();
         JTextField id = new JTextField();
@@ -113,21 +112,22 @@ public class Main extends JFrame {
         add(panel);
 
         JButton boton = new JButton("Guardar");
-        panel.add(boton);
+
         boton.addActionListener(e -> {
             ColaboradorExterno a = new ColaboradorExterno(nombre.getText(),id.getText(),area.getText(),departamento.getText(),Integer.parseInt(meses.getText()),Integer.parseInt(sueldo.getText()));
             gestor.RegistrarColaboradorExterno(a);
-            gestor.LeerRecursoColaboradorExterno();
+            areaEx.setText(gestor.LeerRecursoColaboradorExterno());
         });
 
-        JPanel panel2 = new JPanel(new BorderLayout());
-        panel2.add(panel,BorderLayout.NORTH);
+        JPanel cuadroTxt = new JPanel(new BorderLayout());
+        cuadroTxt.add(panel,BorderLayout.NORTH);
+        cuadroTxt.add(areaEx, BorderLayout.CENTER);
+        cuadroTxt.add(boton, BorderLayout.SOUTH);
 
-        return panel2;
-    }
+        return cuadroTxt;
+    } // Crea Panel con los datos del colaborador externo
 
     static void main(String[] args) {
         SwingUtilities.invokeLater(Main::new);
-
     }
 }
