@@ -6,16 +6,18 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main extends JFrame {
-    GestorIdentidades gestor = new GestorIdentidades();
+    private final GestorIdentidades gestor = new GestorIdentidades();
+    private JTextArea areaT = crearTextArea();
+    private final JTextArea areaV = crearTextArea();
+    private final JTextArea areaEx = crearTextArea();
 
     public Main(){
         super("Trabajo 3");
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setLocationRelativeTo(null);
-        setResizable(false);
         setSize(950,600);
-        setLayout(null);
 
         JTabbedPane tabs = new JTabbedPane();
         tabs.addTab("Trabajadores", crearPanelTrabajadores());
@@ -25,7 +27,12 @@ public class Main extends JFrame {
 
     }
 
-    private Component crearPanelTrabajadores(){
+    private JTextArea crearTextArea(){
+        JTextArea area = new JTextArea();
+        area.setEditable(false);
+        return area;
+    }
+    private JPanel crearPanelTrabajadores(){
         JTextField nombre = new JTextField();
         JTextField id = new JTextField();
         JTextField FechaNacimiento = new JTextField();
@@ -44,7 +51,6 @@ public class Main extends JFrame {
         add(panel);
 
         JButton boton = new JButton("Guardar");
-        panel.add(boton);
         boton.addActionListener(e -> {
             Persona a = new Persona(nombre.getText(),id.getText(),FechaNacimiento.getText(),FechaIngreso.getText(),Cargo.getText(),Integer.parseInt(Sueldo.getText()));
             gestor.RegistrarPersona(a);
@@ -54,11 +60,13 @@ public class Main extends JFrame {
 
         JPanel panel2 = new JPanel(new BorderLayout());
         panel2.add(panel,BorderLayout.NORTH);
+        panel2.add(areaT, BorderLayout.CENTER);
+        panel2.add(boton, BorderLayout.SOUTH);
 
         return panel2;
 
     }
-    private Component crearPanelVehiculos(){
+    private JPanel crearPanelVehiculos(){
         JTextField nombre = new JTextField();
         JTextField id = new JTextField();
         JTextField tipo = new JTextField();
@@ -86,7 +94,7 @@ public class Main extends JFrame {
         });
         return panel2;
     }
-    private Component crearPanelExternos(){
+    private JPanel crearPanelExternos(){
         JTextField nombre = new JTextField();
         JTextField id = new JTextField();
         JTextField area = new JTextField();
