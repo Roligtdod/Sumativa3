@@ -1,5 +1,6 @@
 package ui;
 
+import data.GestorIdentidades;
 import model.ColaboradorExterno;
 import model.Persona;
 import model.Recurso;
@@ -69,12 +70,6 @@ protected static ArrayList <Recurso> registrable = new ArrayList<>();
         leer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                String cadenaTexto;
-                for (Recurso recurso : registrable) {
-                    if (recurso instanceof Persona){
-
-                    }
-                }
             }
         });
 

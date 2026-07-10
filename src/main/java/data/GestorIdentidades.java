@@ -1,28 +1,39 @@
 package data;
 
-import model.ColaboradorExterno;
-import model.Persona;
-import model.Recurso;
-import model.Vehiculo;
+import model.*;
 
 import java.util.ArrayList;
 
-public class GestorIdentidades {
+public class GestorIdentidades{
 
-    ArrayList <Recurso> registrable = new ArrayList<>();
+    ArrayList <Recurso> registro = new ArrayList<>();
 
-    public void RegistrarRecurso(Recurso recurso){
-        registrable.add(recurso);
+    public void  RegistrarPersona(Persona persona){
+       registro.add(persona);
+    } //Agrega al listado de Recursos las 3 clases hijas
+    public void RegistrarVehiculo(Vehiculo vehiculo){
+        registro.add(vehiculo);
+    }
+    public void RegistrarColaboradorExterno(ColaboradorExterno colaboradorExterno){
+        registro.add(colaboradorExterno);
     }
 
-    public void LeerRecurso(){
-        for (Recurso recurso : registrable) {
+    public void LeerRecursoPersona(){
+        for (Recurso recurso : registro) {
             if (recurso instanceof Persona){
                 recurso.MostrarResumen();
             }
-            if(recurso instanceof Vehiculo){
+        }
+    } //Lee los recursos de la lista y los muestra dependiendo de su tipo, asi se filtra al momento de que aparezca en pantalla
+    public void LeerRecursoVehiculo(){
+        for (Recurso recurso : registro) {
+            if (recurso instanceof Vehiculo){
                 recurso.MostrarResumen();
             }
+        }
+    }
+    public void LeerRecursoColaboradorExterno(){
+        for (Recurso recurso : registro) {
             if (recurso instanceof ColaboradorExterno){
                 recurso.MostrarResumen();
             }

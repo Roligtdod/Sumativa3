@@ -1,6 +1,6 @@
 package model;
 
-public class Recurso {
+public class Recurso implements Registrable{
     protected String nombre;
     protected String id;
 
@@ -13,4 +13,11 @@ public class Recurso {
         System.out.println("Nombre: " + nombre + " ID: " + id);
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

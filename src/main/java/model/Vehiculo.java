@@ -1,6 +1,6 @@
 package model;
 
-public class Vehiculo extends Recurso{
+public class Vehiculo extends Recurso implements Registrable{
     protected String tipo;
     protected String marca;
     protected String patente;
@@ -9,6 +9,18 @@ public class Vehiculo extends Recurso{
         super(nombre, id);
         this.tipo = tipo;
         this.marca = marca;
+        this.patente = patente;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setPatente(String patente) {
         this.patente = patente;
     }
 
